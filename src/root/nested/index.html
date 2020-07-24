@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TOA Data Analysis Form</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="request.js" type = "text/javascript"></script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<h1>Form</h1>
+		<label for='select'>Analysis Type: </label>
+		<select id='select'>
+			<option selected disabled value=''></option>
+			<option value='Team'>Team</option>
+			<option value='Match'>Match</option>
+			<option value='Event'>Event</option>
+			<option value='Region'>Region</option>
+			<option value='Season'>Season</option>
+		</select>
+		
+		<span id='info_type_span'>
+		<br>
+			Info Type:
+			<select id='info_type'>
+				<option value='info'>Basic Info</option>
+				<option value='compare'>Compare</option>
+				<option value='rank'>Rank</option>
+			</select>
+		</span>
+		
+		<!--Secondary Analysis Types-->
+		
+		<span id='select_team_span' class='secondary_span' hidden>
+			<br>
+			Secondary Analysis Type:
+			<select id='select_team' class='secondary'>
+				<!--
+				INFO
+					How did this team perform in the ...
+				COMPARE
+					How does this team's performance in a ... compare to another team's in a ...
+				RANK
+					How does this team rank against other teams in the same ...
+				-->
+				<option value='' selected disabled></option>
+				<option value='Match'>Match</option>
+				<option value='Event'>Event</option>
+				<option value='Region'>Region</option>
+				<option value='Season'>Season</option>
+			</select>
+		</span>
+		
+		<span id='select_match_span' class='secondary_span' hidden>
+			<br>
+			Secondary Analysis Type:
+			<select id='select_match' class='secondary'>
+				<!--
+				INFO
+					How did this match go
+				COMPARE
+					How does this match compare with another match
+				RANK
+					How does this match rank against other matches played by/in a ...
+				-->
+				<option value='' selected disabled></option>
+				<option value='Team'>Team</option>
+				<option value='Event'>Event</option>
+				<option value='Region'>Region</option>
+				<option value='Season'>Season</option>
+			</select>
+		</span>
+		
+		<span id='select_event_span' class='secondary_span' hidden>
+			<br>
+			Secondary Analysis Type:
+			<select id='select_event' class='secondary'>
+				<!--
+				INFO
+					How did this event go
+				COMPARE
+					How does this event compare with another event
+				RANK
+					How does this event rank against other events in this ...
+					OR
+					How does this event rank against the same event in other ...s
+				-->
+				<option value='' selected disabled></option>
+				<option value='Region'>Region</option>
+				<option value='Season'>Season</option>
+			</select>
+		</span>
+		
+		<!--NO SECONDARY ANALYSIS TYPE FOR THE REGION OR SEASON TYPE.-->
+		
+		<!--REGION
+		INFO
+			How did this region do
+		COMPARE
+			How does this region compare to another region
+		RANK
+			How does this region rank against other regions in the same season
+		-->
+		
+		<!--SEASON
+		INFO
+			How did this season go
+		COMPARE
+			How does this season compare to another season
+		RANK
+			How does this season rank against other seasons
+		-->
+		
+		
+		<!--
+		Information Input Div
+		-->
+		
+		<!--Team Divs-->
+		<div id='select_team_match_div' class='input_div' hidden>
+			Team Number: <input type='text' name='teamNumber'>
+		</div>
+		<div id='select_team_event_div' class='input_div' hidden>
+			Team Number: <input type='text' name='teamNumber'>
+		</div>
+		<div id='select_team_region_div' class='input_div' hidden>
+			Team Number: <input type='text' name='teamNumber'>
+		</div>
+		<div id='select_team_season_div' class='input_div' hidden>
+			Team Number: <input type='text' name='teamNumber'>
+		</div>
+		
+		<!--Match Divs-->
+		<div id='select_match_team_div' class='input_div' hidden>
+			Match Level: <select  name='matchLevel'>
+				<option value="1">Qualifying</option>
+				<option value="2">Quarter Finals</option>
+				<option value="3">Semi Finals</option>
+				<option value="4">Finals</option>
+			</select>
+			Match Number: <input type='text' name='matchNumber'>
+			Event Key: <input type='text' name='eventKey'>
+		</div>
+		<div id='select_match_event_div' class='input_div' hidden>
+			Match Level: <select  name='matchLevel'>
+				<option value="1">Qualifying</option>
+				<option value="2">Quarter Finals</option>
+				<option value="3">Semi Finals</option>
+				<option value="4">Finals</option>
+			</select>
+			Match Number: <input type='text' name='matchNumber'>
+			Event Key: <input type='text' name='eventKey'>
+		</div>
+		<div id='select_match_region_div' class='input_div' hidden>
+			Match Level: <select  name='matchLevel'>
+				<option value="1">Qualifying</option>
+				<option value="2">Quarter Finals</option>
+				<option value="3">Semi Finals</option>
+				<option value="4">Finals</option>
+			</select>
+			Match Number: <input type='text' name='matchNumber'>
+			Event Key: <input type='text' name='eventKey'>		
+		</div>
+		<div id='select_match_season_div' class='input_div' hidden>
+			Match Level: <select  name='matchLevel'>
+				<option value="1">Qualifying</option>
+				<option value="2">Quarter Finals</option>
+				<option value="3">Semi Finals</option>
+				<option value="4">Finals</option>
+			</select>
+			Match Number: <input type='text' name='matchNumber'>
+			Event Key: <input type='text' name='eventKey'>		
+		</div>
+		<div id='select_match_div' class='input_div' hidden>
+			Match Level: <select  name='matchLevel'>
+				<option value="1">Qualifying</option>
+				<option value="2">Quarter Finals</option>
+				<option value="3">Semi Finals</option>
+				<option value="4">Finals</option>
+			</select>
+			Match Number: <input type='text' name='matchNumber'>
+			Event Key: <input type='text' name='eventKey'>		
+		</div>
+		
+		
+		<!--Event Divs-->
+		<div id='select_event_region_div' class='input_div' hidden>
+			Event Key: <input type='text' name='eventKey'>
+		</div>
+		<div id='select_event_season_div' class='input_div' hidden>
+			Event Key: <input type='text' name='eventKey'>
+		</div>
+		<div id='select_event_div' class='input_div' hidden>
+			Event Key: <input type='text' name='eventKey'>
+		</div>
+		
+		
+		<!--Region Divs-->
+		<div id='select_region_div' class='input_div' hidden>
+			Region: <input type='text' name='region'>
+		</div>
+		
+		
+		<!--Season Divs-->
+		<div id='select_season_div' class='input_div' hidden>
+			Season Start: <input type='number' name='season'>
+		</div>
+		<div id='select_season_compare_div' class='input_div' hidden>
+			Season2 Start: <input type='number' name='season2'>
+		</div>
+		
+		
+		
+		
+		<br>
+		<button id='submit' disabled>Submit</button>
+		
+		<div id="result"></div>
+		
+		<script>
+			$("#submit").click(function(){
+				$(this).attr("disabled", true)
+				
+				console.log("Clicked")
+				
+				var data = {
+					"AnalysisType": idStrings[$("#select").val()],
+					"InfoType":$("#info_type").val(),
+				}
+				data["SecondaryAnalysisType"] = getSecondaryAnalysisType(data)
+				data["InputData"] = getInputData(data)
+				
+				console.log(data)
+				sendData(data)
+			})
+			
+			$("#select").change(function(){
+				onPrimaryChanged($(this), $("#info_type"))
+			})
+			
+			$("#info_type").change(function(){
+				onPrimaryChanged($("#select"), $(this))
+			})
+			
+			$(".secondary").change(function(){
+				onSecondaryChanged($(this))
+			})
+			
+		</script>
+	</body>
+</html>
